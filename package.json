@@ -1,0 +1,15 @@
+{
+  "name": "meadowlark_travel_services",
+  "version": "1.0.0",
+  "description": "Made for the 'Web Development with Node and Express' book by Ethan Brown",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sxf",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
