@@ -6,7 +6,7 @@ const fortunes = [
      "Whenever possible, keep it simple."
 ]
 
-module.exports.getRandomFortune = function ()
+exports.getRandomFortune = function ()
 {
      return fortunes[Math.floor(Math.random() * fortunes.length)]
 }

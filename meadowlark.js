@@ -1,7 +1,7 @@
 const express = require('express'),
       app = express(),
       handlebars = require('express-handlebars').create( { defaultLayout: 'main' } ),
-      fortunes = require('./resources/fortunes')
+      fortunes = require('./library/fortune.js')
 
 
 
