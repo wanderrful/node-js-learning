@@ -12,13 +12,17 @@ app
      .set('view engine', 'handlebars')
      .set('port', process.env.PORT || 3000)
      .use(express.static(__dirname + '/public'))
+     .use(
+	  (req, res, next) =>
+	       {
+		    res.locals.showTests = app.get('env') !== 'production' && req.query.test == '1'
+		    next()
+	       }
+     )
 //route individual server GET requests
      .get(
 	  '/',
-	  (req, res) =>
-	       {
-		    res.render('home');
-	       }
+	  (req, res) => { res.render('home') }
      )
      .get(
 	  '/about',
@@ -27,10 +31,19 @@ app
 		    res.render(
 			 'about',
 			 {
-			      fortune: fortunes.getRandomFortune()
+			      fortune: fortunes.getRandomFortune(),
+			      pageTestScript: '/qa/tests-about.js'
 			 }
-		    );
+		    )
 	       }
+     )
+     .get(
+	  '/tours/hood-river',
+	  (req, res) => { res.render('tours/hood-river') }
+     )
+     .get(
+	  '/tours/request-group-rate',
+	  (req, res) => { res.render('tours/request-group-rate') }
      )
 //handle HTTP request errors
      .use(  //custom 404 page
